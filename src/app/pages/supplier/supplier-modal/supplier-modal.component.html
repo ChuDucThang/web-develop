@@ -1,0 +1,64 @@
+<div bsModal #addModal="bs-modal" class="modal fade" (onHidden)="reset()">
+  <div class="modal-dialog" role="document">
+    <form [formGroup]="form" *ngIf="form" novalidate autocomplete="off">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" *ngIf="type === 'add'">Add Supplier</h4>
+          <h4 class="modal-title" *ngIf="type === 'update'">Update Supplier</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.hide()">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <label>Name</label>
+              <input type="text" name="username" formControlName="username" class="form-control" [ngClass]="{'is-invalid': submitted && f.username.errors}">
+              <div *ngIf="submitted && f.username?.errors" class="invalid-feedback">
+                <div *ngIf="f.username?.errors?.required">Tên không được để trống</div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label>Address</label>
+              <input type="text" name="address" formControlName="address" class="form-control" [ngClass]="{'is-invalid':submitted && f.address.errors}">
+              <div *ngIf="submitted && f.address?.errors" class="invalid-feedback">
+                <div *ngIf="f.address?.errors?.required">Địa chỉ không được để trống</div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label>Phone</label>
+              <input type="text" name="phone" formControlName="phone" class="form-control" [ngClass]="{'is-invalid':submitted && f.phone.errors}">
+              <div *ngIf="submitted && f.phone?.errors" class="invalid-feedback">
+                <div *ngIf="f.phone?.errors?.required">SĐT không được để trống</div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label>Level</label>
+              <select name="level" formControlName="level" class="c-select form-control">
+                <option>Open this select menu</option>
+                <option value="1">Tốt</option>
+                <option value="2">Khá</option>
+                <option value="3">Trung bình</option>
+              </select>
+            </div>
+            <div class="col-md-12">
+              <label>Status</label>
+              <select name="status" formControlName="status" class="c-select form-control">
+                <option>Open this select menu</option>
+                <option value="0">Hiển thị</option>
+                <option value="1">Không hiển thị</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-success" *ngIf="type === 'add'" (click)="onSubmit()"><i class="fa fa-save"></i> Save</button>
+          <button type="submit" class="btn btn-sm btn-primary" *ngIf="type === 'update'" (click)="onSubmit()"><i class="fa fa-edit"></i> Update</button>
+          <button type="button" class="btn btn-sm btn-default" (click)="reset()"><i class="fa fa-undo"></i> Clear</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal" (click)="modal.hide()"><i class="fa fa-times"></i> Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </form>
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
