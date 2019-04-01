@@ -75,22 +75,6 @@ export class SupplierComponent implements OnInit {
       console.log(this.a)
     }
 
-    // chon(){
-    //   for (let i = 0; i < (this.a.length - 1); i++) {
-    //     let max = i;
-    //     for (let j = i= 1; j < this.a.length; j++) {
-    //       if (this.a[j] > this.a[max]) {
-    //         max = j;
-    //       }
-
-    //       let tmp = this.a[i];
-    //       this.a[i]= this.a[max];
-    //       this.a[max] = tmp;
-    //     }
-    //     console.log(this.a);
-    //   }
-    // }
-
   getSupplierData(){
     this.supplierService.getSupplierData().subscribe(res =>{
         this.supplier = res.data;
