@@ -18,7 +18,7 @@ export class SupplierComponent implements OnInit {
 
   supplier;
 
-  a = Array(8,6,1,5,9,3,2,4);
+  a = Array(8,6,1,5,9,3,2,4,7);
 
 
   constructor(
@@ -35,18 +35,18 @@ export class SupplierComponent implements OnInit {
     this.noibot2();
   }
 
-  // test(){
-  //   function compareNumbers(a,b){
-  //     return a - b;
-  //   }
+  test(){
+    function compareNumbers(a,b){
+      return a - b;
+    }
 
-  //    function compareNumbers2(a,b){
-  //     return b - a;
-  //   }
+     function compareNumbers2(a,b){
+      return b - a;
+    }
 
-  //   console.log(this.a.sort(compareNumbers));
-  //   console.log(this.a.sort(compareNumbers2));
-  // }
+    console.log(this.a.sort(compareNumbers));
+    console.log(this.a.sort(compareNumbers2));
+  }
 
   noibot(){
       for (var i = 0 ; i < ((this.a.length) - 1); i++) {
@@ -78,7 +78,8 @@ export class SupplierComponent implements OnInit {
   getSupplierData(){
     this.supplierService.getSupplierData().subscribe(res =>{
         this.supplier = res.data;
-        console.log(this.supplier);
+        console.log(this.supplier,"hfsjkfhs");
+        console.log(res,"hfsjkfhs");
       })
   }
 
